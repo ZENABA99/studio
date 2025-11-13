@@ -12,6 +12,7 @@ const navLinks = [
   { name: 'Produits', href: '/products' },
   { name: 'À propos de nous', href: '/about' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Tableau de bord', href: '/dashboard' },
 ];
 
 export default function Header() {
