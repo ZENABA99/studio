@@ -13,6 +13,7 @@ const navLinks = [
   { name: 'À propos de nous', href: '/about' },
   { name: 'Contact', href: '/contact' },
   { name: 'Tableau de bord', href: '/dashboard' },
+  { name: 'Notifications', href: '/notifications' },
 ];
 
 export default function Header() {
