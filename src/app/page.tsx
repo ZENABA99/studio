@@ -42,7 +42,7 @@ function HeroSection() {
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
           <Button asChild size="lg">
-            <Link href="#products">
+            <Link href="/products">
               Shop Now <ShoppingCart className="ml-2 h-5 w-5" />
             </Link>
           </Button>
@@ -66,9 +66,16 @@ function FeaturedProductsSection() {
           <p className="mt-2 text-lg text-muted-foreground">Handpicked for your health and beauty.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map(product => (
+          {products.slice(0, 4).map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <Button asChild size="lg" variant="outline">
+            <Link href="/products">
+              View All Products <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

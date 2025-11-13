@@ -8,8 +8,8 @@ const socialLinks = [
 ];
 
 const pageLinks = [
-  { name: 'About', href: '/#benefits' },
-  { name: 'Products', href: '#products' },
+  { name: 'About', href: '/about' },
+  { name: 'Produits', href: '/products' },
   { name: 'Contact', href: '/contact' },
 ];
 
