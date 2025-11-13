@@ -8,9 +8,9 @@ const socialLinks = [
 ];
 
 const pageLinks = [
-  { name: 'About', href: '#' },
+  { name: 'About', href: '/#benefits' },
   { name: 'Products', href: '#products' },
-  { name: 'Contact', href: '#' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Footer() {
