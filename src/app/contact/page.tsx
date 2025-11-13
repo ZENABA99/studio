@@ -18,9 +18,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Invalid email address."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
+  name: z.string().min(2, "Le nom doit comporter au moins 2 caractères."),
+  email: z.string().email("Adresse e-mail invalide."),
+  message: z.string().min(10, "Le message doit comporter au moins 10 caractères."),
 });
 
 export default function ContactPage() {
@@ -37,8 +37,8 @@ export default function ContactPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
+      title: "Message envoyé!",
+      description: "Merci de nous avoir contactés. Nous vous répondrons bientôt.",
     });
     form.reset();
   }
@@ -46,22 +46,22 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
       <div className="text-center mb-12">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold">Contact Us</h1>
+        <h1 className="font-headline text-4xl md:text-5xl font-bold">Contactez-nous</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          We'd love to hear from you! Send us a message and we'll respond as soon as possible.
+          Nous aimerions avoir de vos nouvelles! Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12">
         <div className="bg-muted/30 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold font-headline mb-6">Get in Touch</h2>
+          <h2 className="text-2xl font-bold font-headline mb-6">Prenez contact</h2>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="bg-primary/10 p-3 rounded-full">
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold">Email</h3>
+                <h3 className="font-semibold">E-mail</h3>
                 <a href="mailto:support@aloeverashop.com" className="text-muted-foreground hover:text-primary transition-colors">
                   support@aloeverashop.com
                 </a>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold">Phone</h3>
+                <h3 className="font-semibold">Téléphone</h3>
                 <p className="text-muted-foreground">+1 (555) 123-4567</p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold">Address</h3>
+                <h3 className="font-semibold">Adresse</h3>
                 <p className="text-muted-foreground">123 Aloe Vera Lane, Wellness City, 90210</p>
               </div>
             </div>
@@ -96,9 +96,9 @@ export default function ContactPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nom</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} />
+                      <Input placeholder="Votre nom" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -109,9 +109,9 @@ export default function ContactPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>E-mail</FormLabel>
                     <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} />
+                      <Input placeholder="votre.email@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="How can we help you?"
+                        placeholder="Comment pouvons-nous vous aider?"
                         className="min-h-[150px]"
                         {...field}
                       />
@@ -134,7 +134,7 @@ export default function ContactPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" size="lg">Send Message</Button>
+              <Button type="submit" size="lg">Envoyer le message</Button>
             </form>
           </Form>
         </div>
