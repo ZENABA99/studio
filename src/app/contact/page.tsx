@@ -43,6 +43,10 @@ export default function ContactPage() {
     form.reset();
   }
 
+  const address = "123 Aloe Vera Lane, Wellness City, 90210";
+  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(address)}`;
+
+
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
       <div className="text-center mb-12">
@@ -82,9 +86,18 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold">Adresse</h3>
-                <p className="text-muted-foreground">123 Aloe Vera Lane, Wellness City, 90210</p>
+                <p className="text-muted-foreground">{address}</p>
               </div>
             </div>
+          </div>
+           <div className="mt-8 rounded-lg overflow-hidden">
+            <iframe
+                className="w-full h-64"
+                loading="lazy"
+                allowFullScreen
+                src={googleMapsUrl.replace('YOUR_API_KEY', process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '')}>
+            </iframe>
+            <p className="text-xs text-muted-foreground mt-2">Pour que la carte s'affiche, une clé API Google Maps est nécessaire.</p>
           </div>
         </div>
 
