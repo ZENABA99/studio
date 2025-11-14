@@ -35,6 +35,12 @@
       "description": "A close-up of a cut aloe vera leaf showing the gel inside.",
       "imageUrl": "https://images.unsplash.com/photo-1612453088772-fcbb53aa8329?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhbG9lJTIwbGVhZnxlbnwwfHx8fDE3NjMwNDEzNjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "aloe leaf"
+    },
+    {
+      "id": "engagements-image",
+      "description": "Two hands holding a small plant, symbolizing commitment to nature.",
+      "imageUrl": "https://images.unsplash.com/photo-1512428208395-99d04a3f2573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYW5kcyUyMGhvbGRpbmclMjBwbGFudHxlbnwwfHx8fDE3NjM0NTM2NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "commitment nature"
     }
   ]
 }

@@ -3,6 +3,7 @@ import { CheckCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const benefitsImage = PlaceHolderImages.find(p => p.id === 'benefits-image');
+const engagementsImage = PlaceHolderImages.find(p => p.id === 'engagements-image');
 
 export default function AboutPage() {
   const benefits = [
@@ -48,6 +49,32 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-12 items-center mt-24">
+        <div className="md:order-last">
+          <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-2xl">
+            {engagementsImage && (
+              <Image
+                src={engagementsImage.imageUrl}
+                alt={engagementsImage.description}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                data-ai-hint={engagementsImage.imageHint}
+              />
+            )}
+          </div>
+        </div>
+        <div className="md:order-first">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-secondary-foreground">Nos histoires, nos engagements</h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Depuis notre création, nous sommes animés par la passion de l'aloe vera et ses bienfaits. Notre histoire est celle d'une quête incessante de la qualité, du respect de la nature et de l'innovation au service de votre bien-être.
+          </p>
+           <p className="mt-4 text-lg text-muted-foreground">
+            Chaque produit est le fruit d'un savoir-faire unique et d'un engagement profond envers nos clients et notre planète. Nous cultivons notre aloe vera de manière durable, sans pesticides, et nous nous assurons que chaque étape de la production préserve les précieuses propriétés de la plante.
+          </p>
         </div>
       </div>
     </div>
