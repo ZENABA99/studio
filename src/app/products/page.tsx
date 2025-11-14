@@ -1,5 +1,35 @@
 import { products } from '@/lib/products';
 import ProductCard from '@/components/product/product-card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import type { Product } from '@/types';
+
+const categories = [
+  {
+    value: 'all',
+    label: 'Tous les produits',
+    products: products,
+  },
+  {
+    value: 'soins-du-visage',
+    label: 'Soins du visage',
+    products: products.filter(p => p.category === 'face-care'),
+  },
+  {
+    value: 'soins-du-corps',
+    label: 'Soins du corps',
+    products: products.filter(p => p.category === 'body-care'),
+  },
+  {
+    value: 'soins-des-cheveux',
+    label: 'Soins des cheveux',
+    products: products.filter(p => p.category === 'hair-care'),
+  },
+  {
+    value: 'nouveaute',
+    label: 'Nouveautés',
+    products: products.filter(p => p.tags?.includes('new')),
+  },
+];
 
 export default function ProductsPage() {
   return (
@@ -10,11 +40,34 @@ export default function ProductsPage() {
           Triés sur le volet pour votre santé et votre beauté.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+
+      <Tabs defaultValue="all" className="w-full">
+        <div className="flex justify-center mb-8">
+          <TabsList>
+            {categories.map((category) => (
+              <TabsTrigger key={category.value} value={category.value}>
+                {category.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+
+        {categories.map((category) => (
+          <TabsContent key={category.value} value={category.value}>
+            {category.products.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {category.products.map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground">Aucun produit dans cette catégorie pour le moment.</p>
+              </div>
+            )}
+          </TabsContent>
         ))}
-      </div>
+      </Tabs>
     </div>
   );
 }

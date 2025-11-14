@@ -41,6 +41,30 @@
       "description": "Two hands holding a small plant, symbolizing commitment to nature.",
       "imageUrl": "https://images.unsplash.com/photo-1512428208395-99d04a3f2573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYW5kcyUyMGhvbGRpbmclMjBwbGFudHxlbnwwfHx8fDE3NjM0NTM2NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "commitment nature"
+    },
+    {
+      "id": "product-face-cream",
+      "description": "A jar of aloe vera face cream.",
+      "imageUrl": "https://images.unsplash.com/photo-1621770522713-8b47c60a6227?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYWNlJTIwY3JlYW18ZW58MHx8fHwxNzYzMTEyNDYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "face cream"
+    },
+    {
+      "id": "product-body-lotion",
+      "description": "A bottle of aloe vera body lotion.",
+      "imageUrl": "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9keSUyMGxvdGlvbnxlbnwwfHx8fDE3NjMwODA5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "body lotion"
+    },
+    {
+      "id": "product-shampoo",
+      "description": "A bottle of aloe vera shampoo.",
+      "imageUrl": "https://images.unsplash.com/photo-1519668963014-2308b08e5e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhbG9lJTIwc2hhbXBvb3xlbnwwfHx8fDE3NjMxMTk0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "aloe shampoo"
+    },
+    {
+      "id": "product-lip-balm",
+      "description": "An aloe vera lip balm stick.",
+      "imageUrl": "https://images.unsplash.com/photo-1617992477191-bb534afd4921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsaXAlMjBiYWxtfGVufDB8fHx8MTc2MzExOTQyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lip balm"
     }
   ]
 }

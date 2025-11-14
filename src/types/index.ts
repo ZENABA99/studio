@@ -8,6 +8,8 @@ export interface Product {
     hint: string;
   };
   quantity?: number;
+  category?: 'face-care' | 'body-care' | 'hair-care' | 'drinks' | 'supplements';
+  tags?: string[];
 }
 
 export interface CartItem extends Product {

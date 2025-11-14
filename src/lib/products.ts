@@ -16,6 +16,7 @@ export const products: Product[] = [
     description: "Pure, stabilized aloe vera pulp for digestive health and nutrient absorption.",
     price: 29.99,
     image: getImage('product-drink-1'),
+    category: 'drinks',
   },
   {
     id: '2',
@@ -23,6 +24,7 @@ export const products: Product[] = [
     description: "A refreshing blend of aloe vera, cranberry, and apple for urinary health.",
     price: 32.50,
     image: getImage('product-drink-2'),
+    category: 'drinks',
   },
   {
     id: '3',
@@ -30,6 +32,7 @@ export const products: Product[] = [
     description: 'Topical gel for skin hydration and relief from minor irritations.',
     price: 19.99,
     image: getImage('product-gel-1'),
+    category: 'body-care',
   },
   {
     id: '4',
@@ -37,5 +40,40 @@ export const products: Product[] = [
     description: 'Daily supplement to maintain natural energy levels and support immunity.',
     price: 45.00,
     image: getImage('product-supplement-1'),
+    category: 'supplements',
   },
+  {
+    id: '5',
+    name: 'Crème Visage Hydratante',
+    description: 'Crème riche pour une hydratation profonde et un éclat naturel.',
+    price: 38.00,
+    image: getImage('product-face-cream'),
+    category: 'face-care',
+    tags: ['new']
+  },
+  {
+    id: '6',
+    name: 'Lotion Corporelle Apaisante',
+    description: 'Lotion légère pour une peau douce, lisse et apaisée.',
+    price: 25.00,
+    image: getImage('product-body-lotion'),
+    category: 'body-care',
+  },
+  {
+    id: '7',
+    name: 'Shampooing Réparateur',
+    description: 'Nettoie en douceur et répare les cheveux abîmés.',
+    price: 22.00,
+    image: getImage('product-shampoo'),
+    category: 'hair-care',
+  },
+  {
+    id: '8',
+    name: 'Baume à Lèvres Nutritif',
+    description: 'Protège et hydrate vos lèvres avec la puissance de l\'aloe.',
+    price: 8.50,
+    image: getImage('product-lip-balm'),
+    category: 'face-care',
+    tags: ['new']
+  }
 ];
