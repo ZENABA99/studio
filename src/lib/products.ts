@@ -75,5 +75,14 @@ export const products: Product[] = [
     image: getImage('product-lip-balm'),
     category: 'face-care',
     tags: ['new']
+  },
+  {
+    id: '9',
+    name: 'Masque Cheveux Réparateur',
+    description: 'Masque intensif pour cheveux secs et abîmés.',
+    price: 28.00,
+    image: getImage('product-hair-mask'),
+    category: 'hair-care',
+    tags: ['new']
   }
 ];

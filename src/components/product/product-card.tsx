@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useCart } from '@/components/cart/cart-provider';
 import type { Product } from '@/types';
 import { ShoppingCart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 interface ProductCardProps {
   product: Product;
@@ -18,7 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <Link href={`/products/${product.id}`} className="flex flex-col h-full">
-        <CardHeader className="p-0 border-b">
+        <CardHeader className="p-0 border-b relative">
           <div className="relative aspect-[4/5] w-full overflow-hidden">
             <Image
               src={product.image.src}
@@ -29,6 +30,9 @@ export default function ProductCard({ product }: ProductCardProps) {
               data-ai-hint={product.image.hint}
             />
           </div>
+          {product.tags?.includes('new') && (
+            <Badge className="absolute top-2 right-2">Nouveau</Badge>
+          )}
         </CardHeader>
         <CardContent className="p-4 flex-grow">
           <CardTitle className="text-lg font-headline font-medium group-hover:text-primary transition-colors">{product.name}</CardTitle>
