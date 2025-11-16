@@ -1,11 +1,61 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DollarSign, Users, Package, Activity } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Activity, DollarSign, Package, Users } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
+const recentCustomers = [
+  {
+    name: 'Olivia Martin',
+    email: 'olivia.martin@email.com',
+    amount: '1,999.00',
+    avatar: '/avatars/01.png',
+  },
+  {
+    name: 'Jackson Lee',
+    email: 'jackson.lee@email.com',
+    amount: '39.00',
+    avatar: '/avatars/02.png',
+  },
+  {
+    name: 'Isabella Nguyen',
+    email: 'isabella.nguyen@email.com',
+    amount: '299.00',
+    avatar: '/avatars/03.png',
+  },
+  {
+    name: 'William Kim',
+    email: 'will@email.com',
+    amount: '99.00',
+    avatar: '/avatars/04.png',
+  },
+  {
+    name: 'Sofia Davis',
+    email: 'sofia.davis@email.com',
+    amount: '39.00',
+    avatar: '/avatars/05.png',
+  },
+];
 
 export default function DashboardPage() {
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
       <div className="text-center mb-12">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold">Tableau de Bord</h1>
+        <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          Tableau de Bord
+        </h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Aperçu de l'activité de votre boutique.
         </p>
@@ -14,9 +64,7 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Revenu Total
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Revenu Total</CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -28,9 +76,7 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Clients
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Clients</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -54,9 +100,7 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Activité
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Activité</CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -71,11 +115,43 @@ export default function DashboardPage() {
       <div className="mt-12">
         <Card>
           <CardHeader>
-            <CardTitle>Ventes Récentes</CardTitle>
+            <CardTitle>Clients Récents</CardTitle>
+            <CardDescription>
+              Vous avez eu {recentCustomers.length} clients ce mois-ci.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">Aucune vente récente à afficher.</p>
-            {/* Future implementation of recent sales table */}
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Client</TableHead>
+                  <TableHead className="text-right">Montant</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentCustomers.map((customer) => (
+                  <TableRow key={customer.email}>
+                    <TableCell>
+                      <div className="flex items-center gap-4">
+                        <Avatar className="h-9 w-9">
+                           <AvatarImage src={customer.avatar} alt="Avatar" />
+                           <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">{customer.name}</div>
+                          <div className="text-sm text-muted-foreground">
+                            {customer.email}
+                          </div>
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-right font-medium">
+                      +${customer.amount}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
       </div>
