@@ -43,7 +43,8 @@ export default function ContactPage() {
     form.reset();
   }
 
-  const address = "123 Aloe Vera Lane, Wellness City, 90210";
+  const address = "ALEO VERA MONGO, City GUERA, 213";
+  const phone = "93 58 13 21";
 
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
@@ -56,7 +57,7 @@ export default function ContactPage() {
 
       <div className="grid md:grid-cols-2 gap-12">
         <div className="bg-muted/30 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold font-headline mb-6">Prenez contact</h2>
+          <h2 className="text-2xl font-bold font-headline mb-6">Informations de contact</h2>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="bg-primary/10 p-3 rounded-full">
@@ -75,7 +76,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold">Téléphone</h3>
-                <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                <p className="text-muted-foreground">{phone}</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
