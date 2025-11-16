@@ -46,9 +46,11 @@ export default function Header() {
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-            <span className="sr-only">Account</span>
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="/profile">
+              <User className="h-5 w-5" />
+              <span className="sr-only">Account</span>
+            </Link>
           </Button>
           <Button variant="ghost" size="icon" className="relative" onClick={openCart}>
             <ShoppingCart className="h-5 w-5" />
@@ -92,6 +94,7 @@ export default function Header() {
                       {link.name}
                     </Link>
                   ))}
+                  <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">Profil</Link>
                 </nav>
               </div>
             </SheetContent>
