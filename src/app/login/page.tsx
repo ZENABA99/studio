@@ -56,10 +56,17 @@ export default function LoginPage() {
       });
       router.push('/profile');
     } catch (error: any) {
+      let errorMessage = "Une erreur inconnue est survenue.";
+      if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+        errorMessage = "L'adresse e-mail ou le mot de passe est incorrect.";
+      } else if (error.code === 'auth/invalid-email') {
+        errorMessage = "L'adresse e-mail n'est pas valide.";
+      }
+      
       toast({
         variant: 'destructive',
         title: 'Erreur de connexion',
-        description: error.message,
+        description: errorMessage,
       });
     } finally {
       setIsLoading(false);
