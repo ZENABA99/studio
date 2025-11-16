@@ -62,12 +62,15 @@ export default function SignUpPage() {
       );
       const user = userCredential.user;
 
+      const userRole =
+        values.email === 'azaimesalehhimeda@gmail.com' ? 'Admin' : 'Client';
+
       const userProfile = {
         id: user.uid,
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        role: 'Client',
+        role: userRole,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       };

@@ -33,7 +33,8 @@
         },
         "role": {
           "type": "string",
-          "description": "User's role (e.g., Admin, Client, Distributor)."
+          "description": "User's role (e.g., Admin, Client, Distributor).",
+          "enum": ["Admin", "Client"]
         },
         "createdAt": {
           "type": "string",
