@@ -10,14 +10,18 @@ import { Input } from '@/components/ui/input';
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
 import type { Product } from '@/types';
 
+function getProduct(id: string): Product | undefined {
+  return products.find(p => p.id === id);
+}
+
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = products.find(p => p.id === params.id);
+  const product = getProduct(params.id);
 
   if (!product) {
     notFound();
   }
   
-  // We pass the found product to a client component that will handle user interactions.
+  // Nous passons le produit trouvé à un composant client qui gérera les interactions de l'utilisateur.
   return <ProductDetailClient product={product} />;
 }
 
