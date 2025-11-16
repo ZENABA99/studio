@@ -66,7 +66,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold">E-mail</h3>
-                <a href={`mailto:${email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                <a href={`mailto:${email}`} className="text-muted-foreground hover:text-primary transition-colors block">
                   {email}
                 </a>
               </div>
