@@ -64,8 +64,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold">E-mail</h3>
-                <a href="mailto:support@aloeverashop.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  support@aloeverashop.com
+                <a href="mailto:support@aloenaturel.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  support@aloenaturel.com
                 </a>
               </div>
             </div>

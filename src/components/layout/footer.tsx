@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-8 md:mb-0">
             <Leaf className="h-8 w-8 text-secondary-foreground" />
-            <span className="font-headline text-2xl font-bold text-secondary-foreground">AloeVeraShop</span>
+            <span className="font-headline text-2xl font-bold text-secondary-foreground">aloe naturel</span>
           </div>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-8 mb-8 md:mb-0">
             {pageLinks.map((link) => (
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AloeVeraShop. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} aloe naturel. All rights reserved.</p>
         </div>
       </div>
     </footer>

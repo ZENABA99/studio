@@ -25,7 +25,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           <Leaf className="h-7 w-7 text-primary" />
           <span className="font-headline text-xl font-bold text-foreground">
-            AloeVeraShop
+            aloe naturel
           </span>
         </Link>
         
@@ -72,7 +72,7 @@ export default function Header() {
                 <div className="flex items-center justify-between border-b pb-4">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
                       <Leaf className="h-6 w-6 text-primary" />
-                      <span className="font-headline text-lg font-bold">AloeVeraShop</span>
+                      <span className="font-headline text-lg font-bold">aloe naturel</span>
                     </Link>
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">

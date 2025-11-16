@@ -7,8 +7,8 @@ import { Toaster } from '@/components/ui/toaster';
 import CartSheet from '@/components/cart/cart-sheet';
 
 export const metadata: Metadata = {
-  title: 'AloeVeraShop',
-  description: 'Premium Aloe Vera products for your well-being.',
+  title: 'aloe naturel',
+  description: 'Des produits à base d\'aloe vera pour votre bien-être.',
 };
 
 export default function RootLayout({
