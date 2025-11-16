@@ -6,6 +6,7 @@ import { Leaf, Menu, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCart } from '@/components/cart/cart-provider';
+import { useUser } from '@/firebase';
 
 const navLinks = [
   { name: 'Accueil', href: '/' },
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { cartCount, openCart } = useCart();
+  const { user } = useUser();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm">
@@ -47,7 +49,7 @@ export default function Header() {
             <span className="sr-only">Search</span>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="/profile">
+            <Link href={user ? "/profile" : "/login"}>
               <User className="h-5 w-5" />
               <span className="sr-only">Account</span>
             </Link>
@@ -94,7 +96,7 @@ export default function Header() {
                       {link.name}
                     </Link>
                   ))}
-                  <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">Profil</Link>
+                  <Link href={user ? "/profile" : "/login"} onClick={() => setMenuOpen(false)} className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground">Profil</Link>
                 </nav>
               </div>
             </SheetContent>

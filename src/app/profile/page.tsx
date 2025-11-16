@@ -1,3 +1,5 @@
+'use client';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,13 +19,13 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { User, Edit, LogOut } from 'lucide-react';
-
-const mockUser = {
-  name: 'Fatouma Abdou',
-  email: 'fatouma.abdou@email.com',
-  avatar: '/avatars/01.png',
-};
+import { Edit, LogOut } from 'lucide-react';
+import { useAuth, useUser, useDoc, useMemoFirebase } from '@/firebase';
+import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
+import { doc, getFirestore } from 'firebase/firestore';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const mockOrders = [
   {
@@ -47,6 +49,78 @@ const mockOrders = [
 ];
 
 export default function ProfilePage() {
+  const { user, isUserLoading } = useUser();
+  const auth = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
+  const firestore = getFirestore(auth.app);
+
+  const userDocRef = useMemoFirebase(() => {
+    if (!user) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [firestore, user]);
+
+  const { data: userProfile, isLoading: isProfileLoading } = useDoc(userDocRef);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast({
+        title: 'Déconnecté',
+        description: 'Vous avez été déconnecté avec succès.',
+      });
+      router.push('/');
+    } catch (error: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Erreur de déconnexion',
+        description: error.message,
+      });
+    }
+  };
+
+  if (isUserLoading || (user && isProfileLoading)) {
+    return (
+      <div className="container mx-auto px-4 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
+          <div className="lg:col-span-1 space-y-8">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center">
+                  <Skeleton className="h-24 w-24 rounded-full mb-4" />
+                  <Skeleton className="h-8 w-48 mb-2" />
+                  <Skeleton className="h-5 w-64" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="lg:col-span-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Historique des commandes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Skeleton className="h-40 w-full" />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user || !userProfile) {
+    // This could also redirect to login
+    return (
+      <div className="container mx-auto px-4 py-16 lg:py-24 text-center">
+         <h1 className="text-2xl font-bold">Veuillez vous connecter pour voir votre profil.</h1>
+         <Button onClick={() => router.push('/login')} className="mt-4">
+           Se connecter
+         </Button>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
       <div className="text-center mb-12">
@@ -64,25 +138,23 @@ export default function ProfilePage() {
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
                 <Avatar className="h-24 w-24 mb-4">
-                  <AvatarImage src={mockUser.avatar} alt={mockUser.name} />
+                  <AvatarImage src={user.photoURL || undefined} alt={userProfile.firstName} />
                   <AvatarFallback>
-                    {mockUser.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
+                    {userProfile.firstName?.[0]}
+                    {userProfile.lastName?.[0]}
                   </AvatarFallback>
                 </Avatar>
                 <h2 className="text-2xl font-bold font-headline">
-                  {mockUser.name}
+                  {userProfile.firstName} {userProfile.lastName}
                 </h2>
-                <p className="text-muted-foreground">{mockUser.email}</p>
+                <p className="text-muted-foreground">{userProfile.email}</p>
               </div>
               <Separator className="my-6" />
               <div className="space-y-2">
                  <Button variant="outline" className="w-full justify-start">
                     <Edit className="mr-2 h-4 w-4" /> Modifier le profil
                  </Button>
-                 <Button variant="destructive" className="w-full justify-start">
+                 <Button variant="destructive" onClick={handleLogout} className="w-full justify-start">
                     <LogOut className="mr-2 h-4 w-4" /> Se déconnecter
                  </Button>
               </div>
