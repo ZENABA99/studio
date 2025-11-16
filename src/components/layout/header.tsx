@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCart } from '@/components/cart/cart-provider';
 
 const navLinks = [
-  { name: 'Home', href: '/' },
+  { name: 'Accueil', href: '/' },
   { name: 'Vente en ligne', href: '/products' },
   { name: 'À propos de nous', href: '/about' },
   { name: 'Contact', href: '/contact' },
