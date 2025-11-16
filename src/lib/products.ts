@@ -84,5 +84,30 @@ export const products: Product[] = [
     image: getImage('product-hair-mask'),
     category: 'hair-care',
     tags: ['new']
+  },
+  {
+    id: '10',
+    name: 'Vitality Boost',
+    description: 'Un complément pour soutenir votre énergie et vitalité au quotidien.',
+    price: 35.00,
+    image: getImage('product-vitality-supplement'),
+    category: 'supplements',
+  },
+  {
+    id: '11',
+    name: 'Immune Defense',
+    description: 'Formule à base de plantes pour renforcer vos défenses naturelles.',
+    price: 40.00,
+    image: getImage('product-immune-supplement'),
+    category: 'supplements',
+    tags: ['new'],
+  },
+  {
+    id: '12',
+    name: 'Joint Comfort',
+    description: 'Soutient le confort et la flexibilité des articulations.',
+    price: 48.00,
+    image: getImage('product-joint-supplement'),
+    category: 'supplements',
   }
 ];

@@ -66,7 +66,7 @@ function FeaturedProductsSection() {
           <p className="mt-2 text-lg text-muted-foreground">Handpicked for your health and beauty.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.slice(0, 4).map(product => (
+          {products.filter(p => p.tags?.includes('new') || p.category === 'supplements').slice(0, 4).map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

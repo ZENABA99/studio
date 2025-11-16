@@ -25,6 +25,11 @@ const categories = [
     products: products.filter(p => p.category === 'hair-care'),
   },
   {
+    value: 'complements-bien-etre',
+    label: 'Compléments Bien-être',
+    products: products.filter(p => p.category === 'supplements' || p.category === 'drinks'),
+  },
+  {
     value: 'nouveaute',
     label: 'Nouveautés',
     products: products.filter(p => p.tags?.includes('new')),
