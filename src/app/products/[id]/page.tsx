@@ -14,7 +14,8 @@ function getProduct(id: string): Product | undefined {
   return products.find(p => p.id === id);
 }
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+// Ce composant s'exécute côté serveur pour récupérer les données.
+export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProduct(params.id);
 
   if (!product) {
