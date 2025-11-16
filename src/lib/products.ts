@@ -36,7 +36,7 @@ export const products: Product[] = [
   },
   {
     id: '4',
-    name: 'Aloe Immune Support',
+    name: 'Soutien Immunitaire Aloe',
     description: 'Daily supplement to maintain natural energy levels and support immunity.',
     price: 45.00,
     image: getImage('product-supplement-1'),
@@ -72,7 +72,7 @@ export const products: Product[] = [
     name: 'Baume à Lèvres Nutritif',
     description: 'Protège et hydrate vos lèvres avec la puissance de l\'aloe.',
     price: 8.50,
-    image: getImage('product-lip-balm'),
+    image: getImage('product-lip-balm-alt'),
     category: 'face-care',
     tags: ['new']
   },
