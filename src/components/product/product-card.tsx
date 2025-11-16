@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <CardDescription className="mt-2 text-sm h-10">{product.description}</CardDescription>
         </CardContent>
         <CardFooter className="p-4 flex justify-between items-center bg-muted/50 mt-auto">
-          <p className="text-xl font-bold text-foreground font-headline">${product.price.toFixed(2)}</p>
+          <p className="text-xl font-bold text-foreground font-headline">{product.price.toFixed(2)} FCFA</p>
           <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); addToCart(product); }} size="sm">
             <ShoppingCart className="h-4 w-4 mr-2" />
             Add to Cart

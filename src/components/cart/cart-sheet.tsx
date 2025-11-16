@@ -36,7 +36,7 @@ export default function CartSheet() {
                     </div>
                     <div className="flex-grow">
                       <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-muted-foreground">${item.price.toFixed(2)}</p>
+                      <p className="text-sm text-muted-foreground">{item.price.toFixed(2)} FCFA</p>
                       <div className="flex items-center gap-2 mt-2">
                         <Button
                           variant="outline"
@@ -79,7 +79,7 @@ export default function CartSheet() {
                 <Separator />
                 <div className="flex justify-between items-center font-semibold">
                   <span>Subtotal</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>{cartTotal.toFixed(2)} FCFA</span>
                 </div>
                 <Button asChild size="lg" className="w-full">
                   <Link href="/checkout">Proceed to Checkout</Link>

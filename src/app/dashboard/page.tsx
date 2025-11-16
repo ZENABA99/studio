@@ -68,7 +68,7 @@ export default function DashboardPage() {
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$45,231.89</div>
+            <div className="text-2xl font-bold">45,231.89 FCFA</div>
             <p className="text-xs text-muted-foreground">
               +20.1% par rapport au mois dernier
             </p>
@@ -146,7 +146,7 @@ export default function DashboardPage() {
                       </div>
                     </TableCell>
                     <TableCell className="text-right font-medium">
-                      +${customer.amount}
+                      +{customer.amount} FCFA
                     </TableCell>
                   </TableRow>
                 ))}
