@@ -9,7 +9,7 @@ import { useCart } from '@/components/cart/cart-provider';
 
 const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Produits', href: '/products' },
+  { name: 'Vente en ligne', href: '/products' },
   { name: 'À propos de nous', href: '/about' },
   { name: 'Contact', href: '/contact' },
   { name: 'Tableau de bord', href: '/dashboard' },

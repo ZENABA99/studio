@@ -9,7 +9,7 @@ const socialLinks = [
 
 const pageLinks = [
   { name: 'About', href: '/about' },
-  { name: 'Produits', href: '/products' },
+  { name: 'Vente en ligne', href: '/products' },
   { name: 'Contact', href: '/contact' },
 ];
 
