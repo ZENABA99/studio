@@ -21,31 +21,26 @@ const recentCustomers = [
     name: 'Fatouma Abdou',
     email: 'fatouma.abdou@email.com',
     amount: '1,999.00',
-    avatar: '/avatars/01.png',
   },
   {
     name: 'Seid Hamit',
     email: 'seid.hamit@email.com',
     amount: '39.00',
-    avatar: '/avatars/02.png',
   },
   {
     name: 'Hamza Abba',
     email: 'hamza.abba@email.com',
     amount: '299.00',
-    avatar: '/avatars/03.png',
   },
   {
     name: 'Maimouna Moussa',
     email: 'maimouna.moussa@email.com',
     amount: '99.00',
-    avatar: '/avatars/04.png',
   },
   {
     name: 'Hawa Djimet',
     email: 'hawa.djimet@email.com',
     amount: '39.00',
-    avatar: '/avatars/05.png',
   },
 ];
 
@@ -134,8 +129,7 @@ export default function DashboardPage() {
                     <TableCell>
                       <div className="flex items-center gap-4">
                         <Avatar className="h-9 w-9">
-                           <AvatarImage src={customer.avatar} alt="Avatar" />
-                           <AvatarFallback>{customer.name.charAt(0)}</AvatarFallback>
+                           <AvatarFallback>{customer.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                         <div>
                           <div className="font-medium">{customer.name}</div>
