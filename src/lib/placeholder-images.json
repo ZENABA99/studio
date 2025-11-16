@@ -95,6 +95,12 @@
       "description": "A bottle of joint comfort supplements.",
       "imageUrl": "https://images.unsplash.com/photo-1729708273935-9525a49ab12d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxqb2ludCUyMHN1cHBsZW1lbnR8ZW58MHx8fHwxNzYzMjk3MTgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "joint supplement"
+    },
+    {
+      "id": "product-golden-elixir",
+      "description": "A bottle of golden aloe elixir.",
+      "imageUrl": "https://images.unsplash.com/photo-1627482279097-4007a4a404c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx5ZWxsb3clMjBib3R0bGUlMjBzdXBwbGVtZW50fGVufDB8fHx8MTc2MzQ1NzU4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yellow supplement"
     }
   ]
 }

@@ -109,5 +109,14 @@ export const products: Product[] = [
     price: 48.00,
     image: getImage('product-joint-supplement'),
     category: 'supplements',
+  },
+  {
+    id: '13',
+    name: 'Élixir Doré à l\'Aloe',
+    description: 'Un mélange unique pour le bien-être général et l\'éclat.',
+    price: 52.00,
+    image: getImage('product-golden-elixir'),
+    category: 'supplements',
+    tags: ['new']
   }
 ];
