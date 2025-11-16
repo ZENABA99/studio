@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { products } from '@/lib/products';
@@ -10,19 +10,23 @@ import { Input } from '@/components/ui/input';
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
 import type { Product } from '@/types';
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+// The 'params' object is a Promise, so we need to use a client component
+// that is a child of this server component to handle the client-side logic.
+export default function ProductDetailPage(props: { params: { id: string } }) {
+  const params = use(Promise.resolve(props.params));
   const product = products.find(p => p.id === params.id);
 
   if (!product) {
     notFound();
   }
 
-  const handleAddToCart = () => {
-    const productWithQuantity = { ...product, quantity: quantity };
-    addToCart(productWithQuantity);
-  };
+  return <ProductDetailClient product={product} />;
+}
+
+
+function ProductDetailClient({ product }: { product: Product }) {
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
   
   const handleQuantityChange = (change: number) => {
     setQuantity(prev => Math.max(1, prev + change));
