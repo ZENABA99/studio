@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user account for the AloeVeraShop application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "User's phone number."
+        },
+        "address": {
+          "type": "string",
+          "description": "User's physical address."
+        },
+        "role": {
+          "type": "string",
+          "description": "User's role (e.g., Admin, Client, Distributor)."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the user account was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the user account was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "role",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information. Path-based ownership ensures only the authenticated user can access their own document. Includes fields like firstName, lastName, email, and role.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user, corresponding to their Firebase Auth UID."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to support the AloeVeraShop application, focusing on user management and product information. The structure emphasizes authorization independence and supports secure listing operations. User data is stored in `/users/{userId}`, which is a path-based ownership model suitable for private user data. No custom claims are used; authorization relies solely on `request.auth.uid`.\n\n**Authorization Independence:** User-specific data, like profile information, is directly under the `/users/{userId}` path, ensuring that access control can be enforced based on the user's ID without needing to fetch parent document data.\n\n**QAPs Support:**\n*   Secure listing of users: Listing is disabled at the root `/users` level. Access to specific user documents is controlled via path-based rules, securing user data.\n\n**Explicit State Modeling:** The User entity uses explicit timestamp fields `createdAt` and `updatedAt`.\n\n**Predictable Schema:** The User entity has a well-defined and predictable schema."
+  }
+}
