@@ -18,32 +18,32 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const recentCustomers = [
   {
-    name: 'Olivia Martin',
-    email: 'olivia.martin@email.com',
+    name: 'Fatouma Abdou',
+    email: 'fatouma.abdou@email.com',
     amount: '1,999.00',
     avatar: '/avatars/01.png',
   },
   {
-    name: 'Jackson Lee',
-    email: 'jackson.lee@email.com',
+    name: 'Seid Hamit',
+    email: 'seid.hamit@email.com',
     amount: '39.00',
     avatar: '/avatars/02.png',
   },
   {
-    name: 'Isabella Nguyen',
-    email: 'isabella.nguyen@email.com',
+    name: 'Hamza Abba',
+    email: 'hamza.abba@email.com',
     amount: '299.00',
     avatar: '/avatars/03.png',
   },
   {
-    name: 'William Kim',
-    email: 'will@email.com',
+    name: 'Maimouna Moussa',
+    email: 'maimouna.moussa@email.com',
     amount: '99.00',
     avatar: '/avatars/04.png',
   },
   {
-    name: 'Sofia Davis',
-    email: 'sofia.davis@email.com',
+    name: 'Hawa Djimet',
+    email: 'hawa.djimet@email.com',
     amount: '39.00',
     avatar: '/avatars/05.png',
   },
