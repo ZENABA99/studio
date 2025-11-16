@@ -24,10 +24,6 @@ service cloud.firestore {
      * @principle Enforces document ownership for all operations.
      */
     match /users/{userId} {
-      // Validate that the userId is a valid UUID.
-      function isValidUid(userId) {
-        return userId.matches('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');
-      }
 
       function isSignedIn() {
         return request.auth != null;
@@ -44,9 +40,7 @@ service cloud.firestore {
       allow get: if isOwner(userId);
       allow list: if false;
 
-      allow create: if isOwner(userId)
-                   && isValidUid(userId)
-                   && request.resource.data.id == userId;
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
 
       allow update: if isExistingOwner(userId)
                    && request.resource.data.id == resource.data.id; // Enforce immutability of the 'id' field
