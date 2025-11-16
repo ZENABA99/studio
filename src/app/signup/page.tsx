@@ -63,7 +63,7 @@ export default function SignUpPage() {
       const user = userCredential.user;
 
       const userRole =
-        values.email === 'azaimesalehhimeda@gmail.com' ? 'Admin' : 'Client';
+        values.email === 'zenaba@gmail.com' ? 'Admin' : 'Client';
 
       const userProfile = {
         id: user.uid,
