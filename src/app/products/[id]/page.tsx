@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { products } from '@/lib/products';
@@ -10,16 +10,14 @@ import { Input } from '@/components/ui/input';
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
 import type { Product } from '@/types';
 
-// The 'params' object is a Promise, so we need to use a client component
-// that is a child of this server component to handle the client-side logic.
-export default function ProductDetailPage(props: { params: { id: string } }) {
-  const params = use(Promise.resolve(props.params));
+export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const product = products.find(p => p.id === params.id);
 
   if (!product) {
     notFound();
   }
-
+  
+  // We pass the found product to a client component that will handle user interactions.
   return <ProductDetailClient product={product} />;
 }
 
