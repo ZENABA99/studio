@@ -45,6 +45,7 @@ export default function ContactPage() {
 
   const address = "ALEO VERA MONGO, City GUERA, 213";
   const phone = "93 58 13 21";
+  const email = "support@aloenaturel.com";
 
   return (
     <div className="container mx-auto px-4 py-16 lg:py-24">
@@ -65,8 +66,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold">E-mail</h3>
-                <a href="mailto:support@aloenaturel.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  support@aloenaturel.com
+                <a href={`mailto:${email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                  {email}
                 </a>
               </div>
             </div>
